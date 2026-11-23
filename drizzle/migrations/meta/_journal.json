@@ -1,5 +1,20 @@
 {
   "version": "7",
   "dialect": "postgresql",
-  "entries": []
+  "entries": [
+    {
+      "idx": 0,
+      "version": "7",
+      "when": 1795433187024,
+      "tag": "0000_radar_ofertas_core",
+      "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "7",
+      "when": 1795433219725,
+      "tag": "0001_banners_storage_policies",
+      "breakpoints": true
+    }
+  ]
 }

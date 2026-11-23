@@ -14,16 +14,258 @@ export type Database = {
   }
   public: {
     Tables: {
-      [_ in never]: never
+      app_settings: {
+        Row: {
+          brand_name: string
+          daily_target: number
+          id: number
+          keywords: string[]
+          max_price: number
+          min_discount: number
+          min_price: number
+          min_rating: number
+          min_sales: number
+          updated_at: string
+        }
+        Insert: {
+          brand_name?: string
+          daily_target?: number
+          id?: number
+          keywords?: string[]
+          max_price?: number
+          min_discount?: number
+          min_price?: number
+          min_rating?: number
+          min_sales?: number
+          updated_at?: string
+        }
+        Update: {
+          brand_name?: string
+          daily_target?: number
+          id?: number
+          keywords?: string[]
+          max_price?: number
+          min_discount?: number
+          min_price?: number
+          min_rating?: number
+          min_sales?: number
+          updated_at?: string
+        }
+        Relationships: []
+      }
+      destinations: {
+        Row: {
+          chat_id: string
+          created_at: string
+          enabled: boolean
+          id: string
+          platform: string
+          title: string
+        }
+        Insert: {
+          chat_id: string
+          created_at?: string
+          enabled?: boolean
+          id?: string
+          platform?: string
+          title: string
+        }
+        Update: {
+          chat_id?: string
+          created_at?: string
+          enabled?: boolean
+          id?: string
+          platform?: string
+          title?: string
+        }
+        Relationships: []
+      }
+      offers: {
+        Row: {
+          affiliate_url: string | null
+          banner_path: string | null
+          banner_url: string | null
+          caption: string | null
+          commission_rate: number | null
+          coupon: string | null
+          created_at: string
+          discount_pct: number
+          external_id: string | null
+          id: string
+          image_url: string | null
+          keyword: string | null
+          original_price: number | null
+          posted_at: string | null
+          price: number
+          price_flag: string | null
+          product_url: string | null
+          rating: number | null
+          sales: number | null
+          score: number
+          shop_name: string | null
+          source: string
+          status: string
+          title: string
+          updated_at: string
+        }
+        Insert: {
+          affiliate_url?: string | null
+          banner_path?: string | null
+          banner_url?: string | null
+          caption?: string | null
+          commission_rate?: number | null
+          coupon?: string | null
+          created_at?: string
+          discount_pct?: number
+          external_id?: string | null
+          id?: string
+          image_url?: string | null
+          keyword?: string | null
+          original_price?: number | null
+          posted_at?: string | null
+          price: number
+          price_flag?: string | null
+          product_url?: string | null
+          rating?: number | null
+          sales?: number | null
+          score?: number
+          shop_name?: string | null
+          source?: string
+          status?: string
+          title: string
+          updated_at?: string
+        }
+        Update: {
+          affiliate_url?: string | null
+          banner_path?: string | null
+          banner_url?: string | null
+          caption?: string | null
+          commission_rate?: number | null
+          coupon?: string | null
+          created_at?: string
+          discount_pct?: number
+          external_id?: string | null
+          id?: string
+          image_url?: string | null
+          keyword?: string | null
+          original_price?: number | null
+          posted_at?: string | null
+          price?: number
+          price_flag?: string | null
+          product_url?: string | null
+          rating?: number | null
+          sales?: number | null
+          score?: number
+          shop_name?: string | null
+          source?: string
+          status?: string
+          title?: string
+          updated_at?: string
+        }
+        Relationships: []
+      }
+      posts: {
+        Row: {
+          created_at: string
+          destination_id: string | null
+          error: string | null
+          id: string
+          offer_id: string
+          provider_message_id: string | null
+          status: string
+        }
+        Insert: {
+          created_at?: string
+          destination_id?: string | null
+          error?: string | null
+          id?: string
+          offer_id: string
+          provider_message_id?: string | null
+          status: string
+        }
+        Update: {
+          created_at?: string
+          destination_id?: string | null
+          error?: string | null
+          id?: string
+          offer_id?: string
+          provider_message_id?: string | null
+          status?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "posts_destination_id_fkey"
+            columns: ["destination_id"]
+            isOneToOne: false
+            referencedRelation: "destinations"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "posts_offer_id_fkey"
+            columns: ["offer_id"]
+            isOneToOne: false
+            referencedRelation: "offers"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      price_history: {
+        Row: {
+          captured_at: string
+          external_id: string
+          id: string
+          price: number
+          source: string
+        }
+        Insert: {
+          captured_at?: string
+          external_id: string
+          id?: string
+          price: number
+          source: string
+        }
+        Update: {
+          captured_at?: string
+          external_id?: string
+          id?: string
+          price?: number
+          source?: string
+        }
+        Relationships: []
+      }
+      user_roles: {
+        Row: {
+          id: string
+          role: Database["public"]["Enums"]["app_role"]
+          user_id: string
+        }
+        Insert: {
+          id?: string
+          role: Database["public"]["Enums"]["app_role"]
+          user_id: string
+        }
+        Update: {
+          id?: string
+          role?: Database["public"]["Enums"]["app_role"]
+          user_id?: string
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never
     }
     Functions: {
-      [_ in never]: never
+      has_role: {
+        Args: {
+          _role: Database["public"]["Enums"]["app_role"]
+          _user_id: string
+        }
+        Returns: boolean
+      }
     }
     Enums: {
-      [_ in never]: never
+      app_role: "admin" | "user"
     }
     CompositeTypes: {
       [_ in never]: never
@@ -150,6 +392,8 @@ export type CompositeTypes<
 
 export const Constants = {
   public: {
-    Enums: {},
+    Enums: {
+      app_role: ["admin", "user"],
+    },
   },
 } as const
