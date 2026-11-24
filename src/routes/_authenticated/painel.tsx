@@ -18,9 +18,9 @@ import { searchShopee } from "@/lib/offers.functions";
 export const Route = createFileRoute("/_authenticated/painel")({
   head: () => ({
     meta: [
-      { title: "Ofertas · Radar das Ofertas" },
+      { title: "Ofertas · Radar de Ofertas" },
       { name: "description", content: "Fila de ofertas garimpadas para aprovar e postar." },
-      { property: "og:title", content: "Ofertas · Radar das Ofertas" },
+      { property: "og:title", content: "Ofertas · Radar de Ofertas" },
       { property: "og:description", content: "Fila de ofertas garimpadas para aprovar e postar." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary" },
@@ -75,7 +75,10 @@ function Painel() {
 
   async function reject(o: Offer) {
     const { error } = await supabase.from("offers").update({ status: "rejected" }).eq("id", o.id);
-    if (error) return toast.error(error.message);
+    if (error) {
+      toast.error(error.message);
+      return;
+    }
     qc.invalidateQueries({ queryKey: ["offers"] });
   }
 
@@ -153,7 +156,7 @@ function Painel() {
                 key={o.id}
                 offer={o}
                 onOpen={() => setEditing(o)}
-                onReject={o.status === "new" || o.status === "approved" ? () => reject(o) : undefined}
+                {...(o.status === "new" || o.status === "approved" ? { onReject: () => void reject(o) } : {})}
               />
             ))}
           </div>
@@ -162,7 +165,7 @@ function Painel() {
 
       <OfferEditor
         offer={editing}
-        brand={settings?.brand_name ?? "Radar das Ofertas"}
+        brand={settings?.brand_name ?? "Radar de Ofertas"}
         open={editing !== null}
         onOpenChange={(o) => !o && setEditing(null)}
       />

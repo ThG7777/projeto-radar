@@ -160,7 +160,7 @@ export const generateOfferCaption = createServerFn({ method: "POST" })
       rating: offer.rating != null ? Number(offer.rating) : null,
       sales: offer.sales,
       url: offer.affiliate_url,
-      brand: settings?.brand_name ?? "Radar das Ofertas",
+      brand: settings?.brand_name ?? "Radar de Ofertas",
     });
     const { error } = await supabase
       .from("offers")
@@ -278,7 +278,7 @@ export const sendTelegramTest = createServerFn({ method: "POST" })
     await assertAdmin(context.supabase, context.userId);
     await telegramCall("sendMessage", {
       chat_id: data.chatId,
-      text: "📡 <b>Radar das Ofertas</b> conectado! As ofertas aprovadas vão chegar aqui.",
+      text: "📡 <b>Radar de Ofertas</b> conectado! As ofertas aprovadas vão chegar aqui.",
       parse_mode: "HTML",
     });
     return { ok: true };

@@ -12,7 +12,7 @@ const base = {
   rating: 4.8,
   sales: 2300,
   url: "https://s.shopee.com.br/abc",
-  brand: "Radar das Ofertas",
+  brand: "Radar de Ofertas",
 };
 
 describe("buildCaption", () => {

@@ -16,10 +16,10 @@ export const Route = createFileRoute("/auth")({
   validateSearch: (s) => search.parse(s),
   head: () => ({
     meta: [
-      { title: "Entrar · Radar das Ofertas" },
-      { name: "description", content: "Acesse o painel do Radar das Ofertas." },
-      { property: "og:title", content: "Entrar · Radar das Ofertas" },
-      { property: "og:description", content: "Acesse o painel do Radar das Ofertas." },
+      { title: "Entrar · Radar de Ofertas" },
+      { name: "description", content: "Acesse o painel do Radar de Ofertas." },
+      { property: "og:title", content: "Entrar · Radar de Ofertas" },
+      { property: "og:description", content: "Acesse o painel do Radar de Ofertas." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary" },
     ],

@@ -15,9 +15,9 @@ import { getIntegrationStatus } from "@/lib/offers.functions";
 export const Route = createFileRoute("/_authenticated/config")({
   head: () => ({
     meta: [
-      { title: "Configurações · Radar das Ofertas" },
+      { title: "Configurações · Radar de Ofertas" },
       { name: "description", content: "Filtros de promoção, palavras de busca e integrações." },
-      { property: "og:title", content: "Configurações · Radar das Ofertas" },
+      { property: "og:title", content: "Configurações · Radar de Ofertas" },
       { property: "og:description", content: "Filtros de promoção, palavras de busca e integrações." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary" },
@@ -75,7 +75,7 @@ function Config() {
     const { error } = await supabase
       .from("app_settings")
       .update({
-        brand_name: form.brand_name.trim() || "Radar das Ofertas",
+        brand_name: form.brand_name.trim() || "Radar de Ofertas",
         min_discount: Math.round(n(form.min_discount)),
         min_sales: Math.round(n(form.min_sales)),
         min_rating: n(form.min_rating),

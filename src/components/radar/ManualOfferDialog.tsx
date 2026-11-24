@@ -26,7 +26,10 @@ export function ManualOfferDialog() {
     e.preventDefault();
     const price = toNum(f.price);
     const original = toNum(f.original);
-    if (!price) return toast.error("Informe o preço atual.");
+    if (!price) {
+      toast.error("Informe o preço atual.");
+      return;
+    }
     setBusy(true);
     const { error } = await supabase.from("offers").insert({
       source: "manual",
@@ -41,7 +44,10 @@ export function ManualOfferDialog() {
       score: 50,
     });
     setBusy(false);
-    if (error) return toast.error(error.message);
+    if (error) {
+      toast.error(error.message);
+      return;
+    }
     toast.success("Oferta adicionada em Novas.");
     setF({ title: "", image: "", original: "", price: "", link: "", coupon: "", source: f.source });
     setOpen(false);

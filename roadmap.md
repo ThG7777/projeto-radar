@@ -14,3 +14,11 @@
 
 ## Fase 3
 - Relatórios de cliques/vendas/saídas e otimização
+
+## Novos pedidos (aguardando respostas do usuário)
+- [x] Renomear para "Radar de Ofertas"
+- [ ] Rodar fora da hospedagem Lovable (independente)
+- [ ] Espelhar ofertas de outros grupos trocando pelo link de afiliado próprio (benchmark: Ripply)
+- [ ] WhatsApp com chip próprio
+- [ ] Conteúdo para Instagram (reels, stories, feed) para tráfego pago
+- [ ] Mercado Livre: geração de link de afiliado

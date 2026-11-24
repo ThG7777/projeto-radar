@@ -13,7 +13,7 @@ export async function writeOfferCopy(input: {
     const res = await generateResponse({
       model: "openai/gpt-6.1-sol",
       instructions:
-        "Você é redator de um grupo brasileiro de ofertas chamado Radar das Ofertas. Escreva em português do Brasil, tom animado mas honesto, sem prometer o que não está nos dados, sem inventar preços, sem hashtags.",
+        "Você é redator de um grupo brasileiro de ofertas chamado Radar de Ofertas. Escreva em português do Brasil, tom animado mas honesto, sem prometer o que não está nos dados, sem inventar preços, sem hashtags.",
       input: [
         {
           role: "user",

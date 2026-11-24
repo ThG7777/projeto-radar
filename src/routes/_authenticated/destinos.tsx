@@ -16,9 +16,9 @@ import { detectTelegramChats, getIntegrationStatus, sendTelegramTest } from "@/l
 export const Route = createFileRoute("/_authenticated/destinos")({
   head: () => ({
     meta: [
-      { title: "Destinos · Radar das Ofertas" },
+      { title: "Destinos · Radar de Ofertas" },
       { name: "description", content: "Grupos e canais do Telegram que recebem as ofertas." },
-      { property: "og:title", content: "Destinos · Radar das Ofertas" },
+      { property: "og:title", content: "Destinos · Radar de Ofertas" },
       { property: "og:description", content: "Grupos e canais do Telegram que recebem as ofertas." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary" },
@@ -168,11 +168,11 @@ function Destinos() {
         >
           <div className="grid gap-1.5">
             <Label htmlFor="chat-id">ID ou @ do canal</Label>
-            <Input id="chat-id" placeholder="@radardasofertas ou -100…" value={manual.chatId} onChange={(e) => setManual({ ...manual, chatId: e.target.value })} />
+            <Input id="chat-id" placeholder="@radardeofertas ou -100…" value={manual.chatId} onChange={(e) => setManual({ ...manual, chatId: e.target.value })} />
           </div>
           <div className="grid gap-1.5">
             <Label htmlFor="chat-title">Nome</Label>
-            <Input id="chat-title" placeholder="Radar das Ofertas #1" value={manual.title} onChange={(e) => setManual({ ...manual, title: e.target.value })} />
+            <Input id="chat-title" placeholder="Radar de Ofertas #1" value={manual.title} onChange={(e) => setManual({ ...manual, title: e.target.value })} />
           </div>
           <Button type="submit" variant="outline">
             <Plus /> Adicionar

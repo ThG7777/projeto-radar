@@ -38,7 +38,7 @@ as $$ begin new.updated_at = now(); return new; end; $$;
 -- Settings (single row)
 create table public.app_settings (
   id int primary key default 1 check (id = 1),
-  brand_name text not null default 'Radar das Ofertas',
+  brand_name text not null default 'Radar de Ofertas',
   min_discount int not null default 20,
   min_sales int not null default 100,
   min_rating numeric(3,2) not null default 4.5,

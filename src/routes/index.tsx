@@ -6,9 +6,9 @@ import { Brand, RadarMark } from "@/components/radar/RadarMark";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Radar das Ofertas · Painel de ofertas de afiliado" },
+      { title: "Radar de Ofertas · Painel de ofertas de afiliado" },
       { name: "description", content: "Garimpa promoções reais na Shopee, cria o banner e posta nos seus grupos de ofertas." },
-      { property: "og:title", content: "Radar das Ofertas" },
+      { property: "og:title", content: "Radar de Ofertas" },
       { property: "og:description", content: "Garimpa promoções reais na Shopee, cria o banner e posta nos seus grupos de ofertas." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
@@ -39,7 +39,7 @@ function Index() {
           Só promoção <span className="text-primary">de verdade</span> no seu grupo.
         </h1>
         <p className="mt-6 max-w-xl text-lg text-muted-foreground">
-          O painel do Radar das Ofertas encontra os melhores descontos, gera o banner e dispara para o Telegram.
+          O painel do Radar de Ofertas encontra os melhores descontos, gera o banner e dispara para o Telegram.
         </p>
         <Button asChild variant="hero" size="lg" className="mt-10">
           <Link to="/painel">

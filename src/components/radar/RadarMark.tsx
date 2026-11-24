@@ -15,7 +15,7 @@ export function Brand({ className }: { className?: string }) {
     <span className={cn("inline-flex items-center gap-2.5", className)}>
       <RadarMark />
       <span className="font-display text-lg font-extrabold leading-none tracking-tight">
-        Radar <span className="text-primary">das Ofertas</span>
+        Radar <span className="text-primary">de Ofertas</span>
       </span>
     </span>
   );

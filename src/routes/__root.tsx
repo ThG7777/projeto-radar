@@ -83,9 +83,9 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Radar das Ofertas" },
+      { title: "Radar de Ofertas" },
       { name: "description", content: "Painel que garimpa promoções reais e posta nos grupos de ofertas." },
-      { property: "og:title", content: "Radar das Ofertas" },
+      { property: "og:title", content: "Radar de Ofertas" },
       { property: "og:description", content: "Painel que garimpa promoções reais e posta nos grupos de ofertas." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
