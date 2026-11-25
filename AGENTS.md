@@ -28,3 +28,8 @@ use the editor.
   own key and store it in Secrets.
 - **Secrets.** Lovable manages them. Do not put secret values in the repo.
 <!-- LOVABLE:END -->
+
+## Application boundaries
+- Keep provider calls behind authenticated server functions with an admin check; the route guard alone cannot protect shared connector credentials.
+- Keep scoring, price math, and caption construction browser-safe and independently tested; generated copy must not invent prices or links.
+- Render promotional banners in the browser and store them privately; signed URLs allow intentional delivery without public bucket access.

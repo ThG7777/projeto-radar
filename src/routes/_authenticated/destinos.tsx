@@ -46,7 +46,10 @@ function Destinos() {
 
   async function add(chatId: string, title: string) {
     const { error } = await supabase.from("destinations").insert({ platform: "telegram", chat_id: chatId, title });
-    if (error) return toast.error(error.code === "23505" ? "Esse grupo já está cadastrado." : error.message);
+    if (error) {
+      toast.error(error.code === "23505" ? "Esse grupo já está cadastrado." : error.message);
+      return;
+    }
     toast.success(`${title} adicionado.`);
     refresh();
   }

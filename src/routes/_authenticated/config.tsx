@@ -86,7 +86,10 @@ function Config() {
       })
       .eq("id", 1);
     setSaving(false);
-    if (error) return toast.error(error.message);
+    if (error) {
+      toast.error(error.message);
+      return;
+    }
     toast.success("Configurações salvas.");
     qc.invalidateQueries({ queryKey: ["settings"] });
   }
